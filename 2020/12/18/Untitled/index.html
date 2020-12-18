@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liao-github.github.io">
-  <title>Tag: 爬虫 | liao&#39;blogs</title>
+  <title>正则表达式 | liao&#39;blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="liao&#39;blogs">
-<meta property="og:url" content="https://liao-github.github.io/tags/%E7%88%AC%E8%99%AB/index.html">
+  <meta name="description" content="解析原理解析的局部的文本内容都会在标签之间或标签对应的属性中进行存储 进行指定标签的定位（！！） 标签或者标签对应上的属性中存储的数据值进行提取额（解析）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式">
+<meta property="og:url" content="https://liao-github.github.io/2020/12/18/Untitled/index.html">
 <meta property="og:site_name" content="liao&#39;blogs">
+<meta property="og:description" content="解析原理解析的局部的文本内容都会在标签之间或标签对应的属性中进行存储 进行指定标签的定位（！！） 标签或者标签对应上的属性中存储的数据值进行提取额（解析）">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-18T14:21:00.000Z">
+<meta property="article:modified_time" content="2020-12-18T14:23:34.575Z">
 <meta property="article:author" content="liao">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="liao&#39;blogs" type="application/atom+xml">
@@ -182,36 +187,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Untitled" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-12-18T14:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/">正则表达式解析网页注意</a>
+    <h1 class="article-title" itemprop="name">
+      正则表达式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/12/18/Untitled/" class="archive-article-date">
+  	<time datetime="2020-12-18T14:21:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-18</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="解析原理"><a href="#解析原理" class="headerlink" title="解析原理"></a>解析原理</h2><h3 id="解析的局部的文本内容都会在标签之间或标签对应的属性中进行存储"><a href="#解析的局部的文本内容都会在标签之间或标签对应的属性中进行存储" class="headerlink" title="解析的局部的文本内容都会在标签之间或标签对应的属性中进行存储"></a>解析的局部的文本内容都会在标签之间或标签对应的属性中进行存储</h3><ul>
+<li>进行指定标签的定位（！！）</li>
+<li>标签或者标签对应上的属性中存储的数据值进行提取额（解析）<a id="more"></a>
+
+</li>
+</ul>
+<h4 id="text-字符串"><a href="#text-字符串" class="headerlink" title="text(字符串)"></a>text(字符串)</h4><h4 id="json-对象"><a href="#json-对象" class="headerlink" title="json() 对象"></a>json() 对象</h4><ul>
+<li>open(“test1.txt”,’w’,encoding=’utf-8’)</li>
+<li>w打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。<h4 id="content-二进制"><a href="#content-二进制" class="headerlink" title="content(二进制)"></a>content(二进制)</h4></li>
+<li>open(“test2.jpg”,’wb’)</li>
+<li>wb参数”表示为二进制文件，则样文件系统会按纯粹的二进制格式进行操作，因此也就不存在格式转换的问题了。</li>
+</ul>
+<h3 id="正则表达式设计："><a href="#正则表达式设计：" class="headerlink" title="正则表达式设计："></a>正则表达式设计：</h3><pre><code>从网站element中看出，img的路径所在的最小div块为：
+    &lt;div class=&quot;thumb&quot;&gt;
+        &lt;a href=&quot;/article/123838470&quot; target=&quot;_blank&quot;&gt;
+            &lt;img src=&quot;//pic.qiushibaike.com/system/pictures/12383/123838470/medium/JD1K68EA95VQ9HVT.jpg&quot; alt=&quot;糗事#123838470&quot; class=&quot;illustration&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;
+        &lt;/a&gt;
+    &lt;/div&gt;
+    因为a和img模块中都有独特的id，所以最近只能找div
+
+ex = &#39;&lt;div class=&quot;thumb&quot;&gt;.*?&lt;img src=&quot;(.*?)&quot; alt.*?&lt;/div&gt;&#39;
+(.*?表示两者中的所有字符,因此第一个表示img前的a标签内容，第二个表示图片地址，第三个表示地址后，div结束块前的字符)
+(括号包含的就是指定内容)</code></pre>
+<ul>
+<li>思路：<ul>
+<li>1.先用通用爬虫爬一整张页面</li>
+<li>2.根据页面html分布，使用正则表达式解析，找到图片的地址</li>
+<li>3.拼接图片的完整地址，再get一次，拿到完整图片</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1470359682,3207323946&amp;fm=26&amp;gp=0.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1606843984363&amp;di=f209d326b03be729c43e8f5185212f99&amp;imgtype=0&amp;src=http%3A%2F%2Fsrc.onlinedown.net%2Fd%2Ffile%2Fp%2F2017-04-07%2Fc5a76cb1b73f682801921370305a1fc8.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -219,91 +287,132 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://liao-github.github.io/2020/12/18/Untitled/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/09/%E7%88%AC%E5%8F%96ip%E4%BB%A3%E7%90%86%EF%BC%8C%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%88%91%E7%9A%84ip%E4%BB%A3%E7%90%86%E6%B1%A0/" class="archive-article-date">
-  	<time datetime="2020-12-09T09:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-09</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          正则表达式解析网页注意
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/12/09/pythonsjfx/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python数据分析</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/09/%E7%88%AC%E5%8F%96ip%E4%BB%A3%E7%90%86%EF%BC%8C%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%88%91%E7%9A%84ip%E4%BB%A3%E7%90%86%E6%B1%A0/">简单爬虫</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">PYTHON</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">解析原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E7%9A%84%E5%B1%80%E9%83%A8%E7%9A%84%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%E9%83%BD%E4%BC%9A%E5%9C%A8%E6%A0%87%E7%AD%BE%E4%B9%8B%E9%97%B4%E6%88%96%E6%A0%87%E7%AD%BE%E5%AF%B9%E5%BA%94%E7%9A%84%E5%B1%9E%E6%80%A7%E4%B8%AD%E8%BF%9B%E8%A1%8C%E5%AD%98%E5%82%A8"><span class="toc-number">1.1.</span> <span class="toc-text">解析的局部的文本内容都会在标签之间或标签对应的属性中进行存储</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#text-%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">1.1.1.</span> <span class="toc-text">text(字符串)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#json-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.1.2.</span> <span class="toc-text">json() 对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#content-%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="toc-number">1.1.3.</span> <span class="toc-text">content(二进制)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%AE%BE%E8%AE%A1%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">正则表达式设计：</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -326,9 +435,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

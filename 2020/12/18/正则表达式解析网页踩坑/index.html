@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liao-github.github.io">
-  <title>Tag: 爬虫 | liao&#39;blogs</title>
+  <title>正则表达式解析网页注意 | liao&#39;blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="liao&#39;blogs">
-<meta property="og:url" content="https://liao-github.github.io/tags/%E7%88%AC%E8%99%AB/index.html">
+  <meta name="description" content="本次爬取豆瓣电影分类排行榜图片爬取图片思路：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="正则表达式解析网页注意">
+<meta property="og:url" content="https://liao-github.github.io/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/index.html">
 <meta property="og:site_name" content="liao&#39;blogs">
+<meta property="og:description" content="本次爬取豆瓣电影分类排行榜图片爬取图片思路：">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-18T14:25:00.000Z">
+<meta property="article:modified_time" content="2020-12-18T15:07:29.971Z">
 <meta property="article:author" content="liao">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="liao&#39;blogs" type="application/atom+xml">
@@ -182,36 +188,85 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-正则表达式解析网页踩坑" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/" class="archive-article-date">
-  	<time datetime="2020-12-18T14:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/">正则表达式解析网页注意</a>
+    <h1 class="article-title" itemprop="name">
+      正则表达式解析网页注意
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/" class="archive-article-date">
+  	<time datetime="2020-12-18T14:25:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-18</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本次爬取豆瓣电影分类排行榜图片"><a href="#本次爬取豆瓣电影分类排行榜图片" class="headerlink" title="本次爬取豆瓣电影分类排行榜图片"></a>本次爬取豆瓣电影分类排行榜图片</h2><h3 id="爬取图片思路："><a href="#爬取图片思路：" class="headerlink" title="爬取图片思路："></a>爬取图片思路：</h3><a id="more"></a>
+<ul>
+<li>1.先用通用爬虫爬一整张页面</li>
+<li>2.根据页面html分布，使用正则表达式解析，找到图片的地址</li>
+<li>3.拼接图片的完整地址，再get一次，拿到完整图片</li>
+</ul>
+<p>url链接：<a target="_blank" rel="noopener" href="https://movie.douban.com/typerank?type_name=%E5%89%A7%E6%83%85&amp;type=11&amp;interval_id=100:90&amp;action=">https://movie.douban.com/typerank?type_name=%E5%89%A7%E6%83%85&amp;type=11&amp;interval_id=100:90&amp;action=</a></p>
+<p>本次是ajax请求的处理<br>返回的json类型的数据</p>
+<h3 id="1-把json类型数据转化为list-list标签即可获取"><a href="#1-把json类型数据转化为list-list标签即可获取" class="headerlink" title="1.把json类型数据转化为list,list标签即可获取"></a>1.把json类型数据转化为list,list标签即可获取</h3><h3 id="2-把json类型数据转为text-在使用正则匹配"><a href="#2-把json类型数据转为text-在使用正则匹配" class="headerlink" title="2.把json类型数据转为text,在使用正则匹配"></a>2.把json类型数据转为text,在使用正则匹配</h3><h3 id="方式一"><a href="#方式一" class="headerlink" title="方式一"></a>方式一</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;https://movie.douban.com/j/chart/top_list?type=11&amp;interval_id=100%3A90&amp;action=&quot;</span></span><br><span class="line"></span><br><span class="line">start = <span class="built_in">input</span>(<span class="string">&quot;please enter the begin: &quot;</span>)</span><br><span class="line">limit = <span class="built_in">input</span>(<span class="string">&quot;please enter the length: &quot;</span>)</span><br><span class="line">params = &#123;</span><br><span class="line"><span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;11&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;interval_id&#x27;</span>: <span class="string">&#x27;100:90&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;action&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line"><span class="string">&#x27;start&#x27;</span>: start,</span><br><span class="line"><span class="string">&#x27;limit&#x27;</span>: limit</span><br><span class="line">&#125;</span><br><span class="line">headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">response = requests.get(url=url,params=params,headers=headers)</span><br><span class="line">print(response.status_code)</span><br><span class="line">print(response.text)</span><br><span class="line">data_list = response.json()</span><br><span class="line">print(data_list)</span><br><span class="line">fp = <span class="built_in">open</span>(<span class="string">&quot;douban.txt&quot;</span>,<span class="string">&#x27;w&#x27;</span>,encoding=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">dir</span> <span class="keyword">in</span> data_list:</span><br><span class="line">	title = <span class="built_in">dir</span>[<span class="string">&quot;title&quot;</span>]</span><br><span class="line">   score = <span class="built_in">dir</span>[<span class="string">&quot;score&quot;</span>]</span><br><span class="line">   print(title+<span class="string">&quot; &quot;</span>+score)</span><br><span class="line">   fp.write(title+<span class="string">&quot; &quot;</span>+score+<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">fp.close()</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">肖申克的救赎 9.7</span><br><span class="line">霸王别姬 9.6</span><br><span class="line">控方证人 9.6</span><br><span class="line">伊丽莎白 9.6</span><br><span class="line">阿甘正传 9.5</span><br><span class="line">美丽人生 9.5</span><br><span class="line">辛德勒的名单 9.5</span><br><span class="line">茶馆 9.5</span><br><span class="line">控方证人 9.5</span><br><span class="line">十二怒汉（电视版） 9.5</span><br></pre></td></tr></table></figure>
+<h3 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://movie.douban.com/j/chart/top_list?&quot;</span></span><br><span class="line">start = <span class="built_in">input</span>(<span class="string">&quot;please enter start: &quot;</span>)</span><br><span class="line">limit = <span class="built_in">input</span>(<span class="string">&quot;please enter limit: &quot;</span>)</span><br><span class="line">param = &#123;</span><br><span class="line">    <span class="string">&#x27;type&#x27;</span>: <span class="string">&#x27;11&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;interval_id&#x27;</span>: <span class="string">&#x27;100:90&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;action&#x27;</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;start&#x27;</span>: start,</span><br><span class="line">    <span class="string">&#x27;limit&#x27;</span>: limit</span><br><span class="line">&#125;</span><br><span class="line">headers = &#123;</span><br><span class="line">        <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">response = requests.get(url=url,params=param,headers=headers)</span><br><span class="line">print(response.status_code)</span><br><span class="line"></span><br><span class="line">response_html = response.json()</span><br><span class="line">print(response_html)</span><br><span class="line"><span class="comment"># with open(&#x27;test.html&#x27;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as fp:</span></span><br><span class="line"><span class="comment">#     fp.write(response_html)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#res_html = json.loads(response_html)</span></span><br><span class="line"><span class="comment">#str = json.dumps(data, indent=2)</span></span><br><span class="line"></span><br><span class="line">res_html = json.dumps(response_html,indent=<span class="number">2</span>)</span><br><span class="line"><span class="comment">#print(res_html)</span></span><br><span class="line"><span class="comment"># with open(&quot;res.text&quot;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;)as fp:</span></span><br><span class="line"><span class="comment">#     fp.write(res_html)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># with open(&quot;res.json&quot;,&#x27;w&#x27;,encoding=&#x27;utf-8&#x27;) as fp:</span></span><br><span class="line"><span class="comment">#     fp.write(json.dumps(res_html,indent=2,ensure_ascii=False))</span></span><br><span class="line">url_list =[]</span><br><span class="line">ex = <span class="string">&#x27;&quot;cover_url&quot;: &quot;(.*?.jpg)&quot;&#x27;</span></span><br><span class="line"></span><br><span class="line">url_list = re.findall(ex,res_html,re.S)</span><br><span class="line">print(url_list)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> url1 <span class="keyword">in</span> url_list:</span><br><span class="line">    <span class="comment"># url = str(url)&#125;</span></span><br><span class="line">    print(url1)</span><br><span class="line">    name = url1.split(<span class="string">&#x27;/&#x27;</span>)[-<span class="number">1</span>]</span><br><span class="line">    file_name = name.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line">    print(name.split(<span class="string">&#x27;.&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">    res = requests.get(url=url1, headers=headers)</span><br><span class="line">    print(res.status_code)</span><br><span class="line">    print(res)</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(name,<span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">        fp.write(res.content)</span><br><span class="line">        print(<span class="string">&quot;下载成功&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><ul>
+<li>requests.get返回的是json格式的数据，不可直接进行操作<h4 id="需要：把json格式转化为字符串形式，可以先保存为text格式再使用正则表达式获取url，然后确定正则规则"><a href="#需要：把json格式转化为字符串形式，可以先保存为text格式再使用正则表达式获取url，然后确定正则规则" class="headerlink" title="需要：把json格式转化为字符串形式，可以先保存为text格式再使用正则表达式获取url，然后确定正则规则"></a>需要：把json格式转化为字符串形式，可以先保存为text格式再使用正则表达式获取url，然后确定正则规则</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">response_html &#x3D; response.json()</span><br><span class="line">res_html &#x3D; json.dumps(response_html,indent&#x3D;2)</span><br><span class="line">url_list &#x3D;[]</span><br><span class="line">ex &#x3D; &#39;&quot;cover_url&quot;: &quot;(.*?.jpg)&quot;&#39;</span><br><span class="line">url_list &#x3D; re.findall(ex,res_html,re.S)</span><br><span class="line">print(url_list)</span><br><span class="line">https:&#x2F;&#x2F;img2.doubanio.com&#x2F;view&#x2F;photo&#x2F;s_ratio_poster&#x2F;public&#x2F;p480747492.jpg</span><br></pre></td></tr></table></figure>
+否则直接使用正则则会：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">response_html &#x3D; response.text</span><br><span class="line">url_list &#x3D;[]</span><br><span class="line">ex &#x3D; &#39;&quot;cover_url&quot;: &quot;(.*?.jpg)&quot;&#39;</span><br><span class="line">url_list &#x3D; re.findall(ex,response_html,re.S)</span><br><span class="line">print(url_list)</span><br><span class="line"></span><br><span class="line">https:&#x2F;&#x2F;img2.doubanio.com\&#x2F;view\&#x2F;photo\&#x2F;s_ratio_poster\&#x2F;public\&#x2F;p480747492.jpg</span><br></pre></td></tr></table></figure>
+可见json格式和str的区别.</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1470359682,3207323946&amp;fm=26&amp;gp=0.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1606843984363&amp;di=f209d326b03be729c43e8f5185212f99&amp;imgtype=0&amp;src=http%3A%2F%2Fsrc.onlinedown.net%2Fd%2Ffile%2Fp%2F2017-04-07%2Fc5a76cb1b73f682801921370305a1fc8.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -227,7 +282,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -240,70 +295,117 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://liao-github.github.io/2020/12/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E8%B8%A9%E5%9D%91/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/09/%E7%88%AC%E5%8F%96ip%E4%BB%A3%E7%90%86%EF%BC%8C%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%88%91%E7%9A%84ip%E4%BB%A3%E7%90%86%E6%B1%A0/" class="archive-article-date">
-  	<time datetime="2020-12-09T09:13:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-09</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/18/Untitled/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/09/%E7%88%AC%E5%8F%96ip%E4%BB%A3%E7%90%86%EF%BC%8C%E5%AE%9E%E7%8E%B0%E8%87%AA%E6%88%91%E7%9A%84ip%E4%BB%A3%E7%90%86%E6%B1%A0/">简单爬虫</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">PYTHON</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AC%E6%AC%A1%E7%88%AC%E5%8F%96%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%88%86%E7%B1%BB%E6%8E%92%E8%A1%8C%E6%A6%9C%E5%9B%BE%E7%89%87"><span class="toc-number">1.</span> <span class="toc-text">本次爬取豆瓣电影分类排行榜图片</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E5%8F%96%E5%9B%BE%E7%89%87%E6%80%9D%E8%B7%AF%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">爬取图片思路：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%8A%8Ajson%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8C%96%E4%B8%BAlist-list%E6%A0%87%E7%AD%BE%E5%8D%B3%E5%8F%AF%E8%8E%B7%E5%8F%96"><span class="toc-number">1.2.</span> <span class="toc-text">1.把json类型数据转化为list,list标签即可获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%8A%8Ajson%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E8%BD%AC%E4%B8%BAtext-%E5%9C%A8%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D"><span class="toc-number">1.3.</span> <span class="toc-text">2.把json类型数据转为text,在使用正则匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80"><span class="toc-number">1.4.</span> <span class="toc-text">方式一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="toc-number">1.5.</span> <span class="toc-text">方式二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="toc-number">1.6.</span> <span class="toc-text">注意：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%EF%BC%9A%E6%8A%8Ajson%E6%A0%BC%E5%BC%8F%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%BD%A2%E5%BC%8F%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%85%88%E4%BF%9D%E5%AD%98%E4%B8%BAtext%E6%A0%BC%E5%BC%8F%E5%86%8D%E4%BD%BF%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E8%8E%B7%E5%8F%96url%EF%BC%8C%E7%84%B6%E5%90%8E%E7%A1%AE%E5%AE%9A%E6%AD%A3%E5%88%99%E8%A7%84%E5%88%99"><span class="toc-number">1.6.1.</span> <span class="toc-text">需要：把json格式转化为字符串形式，可以先保存为text格式再使用正则表达式获取url，然后确定正则规则</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -326,9 +428,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
