@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liao-github.github.io">
-  <title>Tag: data_anlysis | liao&#39;blogs</title>
+  <title>包，javadoc，输入 | liao&#39;blogs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="liao&#39;blogs">
-<meta property="og:url" content="https://liao-github.github.io/tags/data-anlysis/index.html">
+  <meta name="description" content="包的本质就是文件夹 规范包般为公司域名倒置，www.baidu.com-&gt;com.baidu.www 阿里巴巴开发手册">
+<meta property="og:type" content="article">
+<meta property="og:title" content="包，javadoc，输入">
+<meta property="og:url" content="https://liao-github.github.io/2021/01/24/%E5%8C%85%EF%BC%8Cjavadoc%EF%BC%8C%E8%BE%93%E5%85%A5/index.html">
 <meta property="og:site_name" content="liao&#39;blogs">
+<meta property="og:description" content="包的本质就是文件夹 规范包般为公司域名倒置，www.baidu.com-&gt;com.baidu.www 阿里巴巴开发手册">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-01-24T01:59:00.000Z">
+<meta property="article:modified_time" content="2021-01-24T02:03:45.689Z">
 <meta property="article:author" content="liao">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="liao&#39;blogs" type="application/atom+xml">
@@ -182,75 +187,264 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-包，javadoc，输入" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/09/pythonsjfx/" class="archive-article-date">
-  	<time datetime="2020-12-09T09:29:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-09</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/09/pythonsjfx/">python数据分析</a>
+    <h1 class="article-title" itemprop="name">
+      包，javadoc，输入
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/01/24/%E5%8C%85%EF%BC%8Cjavadoc%EF%BC%8C%E8%BE%93%E5%85%A5/" class="archive-article-date">
+  	<time datetime="2021-01-24T01:59:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-24</time>
+</a>
+        
+      </header>
+    
+    <!-- 目录内容 -->
+
+<!-- 目录内容结束 -->
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="包的本质就是文件夹"><a href="#包的本质就是文件夹" class="headerlink" title="包的本质就是文件夹"></a>包的本质就是文件夹</h3><ol>
+<li>规范包般为公司域名倒置，<a target="_blank" rel="noopener" href="http://www.baidu.com-&gt;com.baidu.www/">www.baidu.com-&gt;com.baidu.www</a></li>
+<li>阿里巴巴开发手册</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="javadoc"><a href="#javadoc" class="headerlink" title="javadoc"></a>javadoc</h3><p>javadoc命令是用来生成自己的API文档的</p>
+<p>@author 作者名</p>
+<p>@version 版本号</p>
+<p>@since 指明需要最早使用的jdk版本</p>
+<p>@param 参数名</p>
+<p>@return  返回值情况</p>
+<p>@throw 异常抛出情况</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> base;</span><br><span class="line"><span class="comment">//类的注释</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> liao</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@version</span> 1.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>  1.8</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Doc</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line"><span class="comment">//方法的注释</span></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> laio</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">test</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>命令：（在文件所在包下执行）</p>
+<p><code>javadoc -encoding UTF-8 -charset UTF-8 Doc.java</code></p>
+<p>参数：为了让中文显示更正常</p>
+<h3 id="用户交互Scanner"><a href="#用户交互Scanner" class="headerlink" title="用户交互Scanner"></a>用户交互Scanner</h3><ol>
+<li>使用next(),nextline()方法接受字符串</li>
+<li>hasNext()和hasNextLine()判断是否还有输入的数据</li>
+<li>scan.close();用完关闭：凡是属于IO流的类，如果不关闭会一直占用资源，</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//nextline()</span></span><br><span class="line"><span class="keyword">package</span> scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        System.out.println(<span class="string">&quot;使用next方式接收：&quot;</span>);<span class="comment">//hello world</span></span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">        <span class="keyword">if</span>(scan.hasNextLine())&#123;</span><br><span class="line">            String str = scan.nextLine();</span><br><span class="line">            System.out.println(<span class="string">&quot;输出的内容是：&quot;</span>+str);<span class="comment">//hello world</span></span><br><span class="line">        &#125;</span><br><span class="line">        scan.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(scan.hasNext())&#123;</span><br><span class="line">            String str = scan.nextLine();</span><br><span class="line">    <span class="comment">//输入hello world</span></span><br><span class="line">    <span class="comment">//输出hello world</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(scan.hasNext())&#123;</span><br><span class="line">            String str = scan.next();</span><br><span class="line">    <span class="comment">//输入hello world</span></span><br><span class="line">    <span class="comment">//输出hello</span></span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(scan.hasNextLine())&#123;</span><br><span class="line">            String str = scan.next();</span><br><span class="line">    <span class="comment">//输入hello world</span></span><br><span class="line">    <span class="comment">//输出hello</span></span><br><span class="line">            </span><br></pre></td></tr></table></figure>
+
+<p>结论：</p>
+<ol>
+<li><p>nextLine()可接收含有空格的字符串，next()不可接受空格字符串</p>
+</li>
+<li><p>hasNext()和hasNextLine()均是判断有无字符串</p>
+</li>
+<li><p>区别：</p>
+<p>next()不会吸取字符前/后的空格/Tab键，只吸取字符，开始吸取字符（字符前后不算）直到遇到空格/Tab键/回车截止吸取；<br>  　nextLine()吸取字符前后的空格/Tab键，回车键截止</p>
+</li>
+</ol>
+<p>接收int，float，nextInt()，nextFloat()</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">&quot;请输入整数：&quot;</span>);</span><br><span class="line"><span class="keyword">int</span> a = scan.nextInt();</span><br><span class="line">System.out.println(a);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;请输入浮点数：&quot;</span>);</span><br><span class="line"><span class="keyword">float</span> b = scan.nextFloat();</span><br><span class="line">System.out.println(b);</span><br></pre></td></tr></table></figure>
+
+<p>小案例：平均数，总和</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> scanner;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">demo1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scan = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(scan.hasNextDouble())&#123;</span><br><span class="line">            <span class="keyword">double</span> x = scan.nextDouble();</span><br><span class="line">            m++;</span><br><span class="line">            sum = sum + x;</span><br><span class="line">            System.out.println(m+<span class="string">&quot;个数&quot;</span>+<span class="string">&quot;当前值为：&quot;</span>+sum);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;总数为：&quot;</span>+m);</span><br><span class="line">        System.out.println(<span class="string">&quot;总和为：&quot;</span>+sum);</span><br><span class="line">        System.out.println(<span class="string">&quot;平均数为：&quot;</span>+(sum/m));</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span></span><br><span class="line"><span class="number">1</span>个数当前值为：<span class="number">10.0</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line"><span class="number">2</span>个数当前值为：<span class="number">30.0</span></span><br><span class="line"><span class="number">30</span></span><br><span class="line"><span class="number">3</span>个数当前值为：<span class="number">60.0</span></span><br><span class="line"><span class="number">40</span></span><br><span class="line"><span class="number">4</span>个数当前值为：<span class="number">100.0</span></span><br><span class="line"></span><br><span class="line">x</span><br><span class="line">总数为：<span class="number">4</span></span><br><span class="line">总和为：<span class="number">100.0</span></span><br><span class="line">平均数为：<span class="number">25.0</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>只要输入 hasNextDouble()不为真，输入除double类型的数据，循环便跳出，不再执行循环</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1470359682,3207323946&amp;fm=26&amp;gp=0.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1606843984363&amp;di=f209d326b03be729c43e8f5185212f99&amp;imgtype=0&amp;src=http%3A%2F%2Fsrc.onlinedown.net%2Fd%2Ffile%2Fp%2F2017-04-07%2Fc5a76cb1b73f682801921370305a1fc8.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">data_anlysis</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/data-anlysis//" class="article-tag-list-link color3">data_anlysis</a>
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://liao-github.github.io/2021/01/24/%E5%8C%85%EF%BC%8Cjavadoc%EF%BC%8C%E8%BE%93%E5%85%A5/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/01/24/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          基础语法
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2021/01/24/%E5%8F%98%E9%87%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">变量和运算符</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8C%85%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%B0%B1%E6%98%AF%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.</span> <span class="toc-text">包的本质就是文件夹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#javadoc"><span class="toc-number">2.</span> <span class="toc-text">javadoc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BA%A4%E4%BA%92Scanner"><span class="toc-number">3.</span> <span class="toc-text">用户交互Scanner</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -273,9 +467,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
